@@ -8,6 +8,8 @@ Everything runs on your machine. No network calls, no telemetry, nothing leaves 
 
 v1 in progress: GDPR rules only, TypeScript/JavaScript, diff-scoped, terminal-table output. The engine (diff parsing, reporting, rule interface) is framework-agnostic, so future rule packs (e.g. EU AI Act) can be added under `src/frameworks/` without touching the core.
 
+GDPR rules (v1): hardcoded PII, PII in logs, third-party HTTP without anonymisation, missing consent check, and DPIA trigger detection (flags patterns likely requiring an Article 35 DPIA / UK equivalent — the tool never performs the assessment itself). The same rule pack is intended to cover both EU GDPR and UK GDPR, which share near-identical definitions of personal data, consent, and DPIA triggers. This is risk-pattern flagging, not legal certification.
+
 ## Project structure
 
 | Path | Responsibility |

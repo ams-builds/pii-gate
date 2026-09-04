@@ -1,0 +1,20 @@
+{
+  "name": "prowareign",
+  "version": "0.1.0",
+  "description": "Local-first PR-diff compliance checker. v1: GDPR.",
+  "type": "module",
+  "bin": {
+    "prowareign": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx src/cli.ts",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.10",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
+}

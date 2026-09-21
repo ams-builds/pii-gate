@@ -2,7 +2,8 @@ import type { ChangedFile, Finding, Rule } from "../../../types.js";
 import { containsAnyWord } from "../../../util/identifiers.js";
 
 const PII_WORDS = ["email", "ssn", "dob", "address", "phone"];
-const HTTP_CALL = /\b(?:fetch|axios(?:\.(?:get|post|put|patch|delete))?)\s*\(/i;
+/** JS fetch/axios plus Python requests, httpx and urllib. */
+const HTTP_CALL = /\b(?:fetch|(?:axios|requests|httpx)(?:\.(?:get|post|put|patch|delete|request))?|urlopen)\s*\(/i;
 const ANONYMISATION_WORDS = ["anonymise", "anonymize", "anonymised", "anonymized", "hash", "redact", "redacted", "mask", "masked", "pseudonymise", "pseudonymize"];
 const WINDOW_SPAN = 4;
 

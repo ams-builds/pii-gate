@@ -36,4 +36,11 @@ describe("gdpr/pii-in-logs", () => {
     const findings = piiInLogs.check({ path: "negative-2.ts", changedLines: allLines(contents) }, contents);
     expect(findings).toHaveLength(0);
   });
+
+  it("flags a Python print of an email", () => {
+    const contents = loadFixture("pii-in-logs", "positive-4.py");
+    const findings = piiInLogs.check({ path: "positive-4.py", changedLines: allLines(contents) }, contents);
+    expect(findings).toHaveLength(1);
+    expect(findings[0].line).toBe(2);
+  });
 });

@@ -29,4 +29,10 @@ describe("gdpr/hardcoded-pii", () => {
     const findings = hardcodedPii.check({ path: "negative-2.ts", changedLines: allLines(contents) }, contents);
     expect(findings).toHaveLength(0);
   });
+
+  it("does not flag git SSH remotes or URLs with embedded credentials", () => {
+    const contents = loadFixture("hardcoded-pii", "negative-3.py");
+    const findings = hardcodedPii.check({ path: "negative-3.py", changedLines: allLines(contents) }, contents);
+    expect(findings).toHaveLength(0);
+  });
 });

@@ -29,4 +29,11 @@ describe("gdpr/third-party-http", () => {
     const findings = thirdPartyHttp.check({ path: "negative-2.ts", changedLines: allLines(contents) }, contents);
     expect(findings).toHaveLength(0);
   });
+
+  it("flags a Python requests.post sending an email", () => {
+    const contents = loadFixture("third-party-http", "positive-3.py");
+    const findings = thirdPartyHttp.check({ path: "positive-3.py", changedLines: allLines(contents) }, contents);
+    expect(findings).toHaveLength(1);
+    expect(findings[0].line).toBe(2);
+  });
 });

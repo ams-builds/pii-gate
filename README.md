@@ -8,7 +8,7 @@ Think of it as a linter, but for privacy: the same five-second habit as running 
 
 ## Status
 
-v1 core done: all five GDPR rules implemented and passing fixture tests, TypeScript/JavaScript, diff-scoped, terminal-table output. The engine (diff parsing, reporting, rule interface) is framework-agnostic, so future rule packs can be added under `src/frameworks/` without touching the core.
+v1 core done: all five GDPR rules implemented and passing fixture tests, TypeScript/JavaScript and Python, diff-scoped, terminal-table output. The engine (diff parsing, reporting, rule interface) is framework-agnostic, so future rule packs can be added under `src/frameworks/` without touching the core.
 
 GDPR rules (v1):
 

@@ -2,9 +2,10 @@ import type { ChangedFile, Finding, Rule } from "../../../types.js";
 import { containsAnyWord } from "../../../util/identifiers.js";
 
 const PII_WORDS = ["email", "ssn", "dob", "address"];
-const LOG_CALL = /\b(?:console\.(?:log|error|warn|info|debug)|logger\.(?:log|error|warn|info|debug))\s*\(([^)]*)\)/i;
+/** JS console/logger plus Python logging, logger and bare print. */
+const LOG_CALL = /\b(?:(?:console|logger|logging|log)\.(?:log|error|warn|warning|info|debug|exception)|print)\s*\(([^)]*)\)/i;
 
-/** Flags console/logger calls whose arguments include a PII-named variable (email, ssn, dob, address). */
+/** Flags log calls whose arguments include a PII-named variable (email, ssn, dob, address). */
 export const piiInLogs: Rule = {
   id: "gdpr/pii-in-logs",
   check(file: ChangedFile, contents: string): Finding[] {

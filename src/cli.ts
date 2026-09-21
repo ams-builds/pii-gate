@@ -9,7 +9,7 @@ import type { Finding } from "./types.js";
 function main(): void {
   const [repoPath, range] = process.argv.slice(2);
   if (!repoPath) {
-    console.error("Usage: prowareign <repo-path> [git-diff-range]");
+    console.error("Usage: pii-gate <repo-path> [git-diff-range]");
     process.exit(1);
   }
 

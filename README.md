@@ -1,14 +1,24 @@
-# Prowareign
+# pii-gate
 
-Prowareign is a local-first CLI that scans a pull request's diff — not the whole repo — for privacy and regulatory compliance risks before you merge. It flags things like hardcoded PII, sensitive fields written to logs, PII sent to third-party HTTP calls without anonymisation, and new data collection with no nearby consent check, each with a red/amber/green severity and a plain-English explanation.
+Catch a hardcoded email, a leaked SSN, or a missing consent check in your diff before it ships, not after a customer or a regulator finds it first.
 
-Everything runs on your machine. No network calls, no telemetry, nothing leaves your laptop.
+pii-gate is a local-first CLI that scans a pull request's diff, not the whole repo, for privacy and regulatory compliance risks before you merge. Every finding gets a red/amber/green severity, a plain-English explanation, and the exact regulatory clause it breaks. No network calls, no telemetry, nothing leaves your laptop, ever.
+
+Think of it as a linter, but for privacy: the same five-second habit as running eslint before a commit, except this one catches the mistake that gets a company fined instead of the one that gets a PR comment.
 
 ## Status
 
 v1 core done: all five GDPR rules implemented and passing fixture tests, TypeScript/JavaScript, diff-scoped, terminal-table output. The engine (diff parsing, reporting, rule interface) is framework-agnostic, so future rule packs can be added under `src/frameworks/` without touching the core.
 
-GDPR rules (v1): hardcoded PII, PII in logs, third-party HTTP without anonymisation, missing consent check, and DPIA trigger detection (flags patterns likely requiring an Article 35 DPIA / UK equivalent — the tool never performs the assessment itself). The same rule pack is intended to cover both EU GDPR and UK GDPR, which share near-identical definitions of personal data, consent, and DPIA triggers. This is risk-pattern flagging, not legal certification.
+GDPR rules (v1):
+
+1. Hardcoded PII (emails, phone numbers, national IDs)
+2. Sensitive fields written to logs
+3. PII sent to third-party HTTP calls without anonymisation
+4. New data collection with no nearby consent check
+5. DPIA trigger detection (flags patterns likely requiring an Article 35 DPIA / UK equivalent; the tool never performs the assessment itself)
+
+The same rule pack is intended to cover both EU GDPR and UK GDPR, which share near-identical definitions of personal data, consent, and DPIA triggers. This is risk-pattern flagging, not legal certification.
 
 ## Project structure
 

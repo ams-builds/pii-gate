@@ -1,6 +1,8 @@
 # pii-gate
 
-Catch a hardcoded email, a leaked SSN, or a missing consent check in your diff before it ships, not after a customer or a regulator finds it first.
+Catches GDPR privacy mistakes in your code before you merge, without your code leaving your machine.
+
+Spot a hardcoded email, a leaked SSN, or a missing consent check in your diff before it ships, not after a customer or a regulator finds it first.
 
 pii-gate is a local-first CLI that scans a pull request's diff, not the whole repo, for privacy and regulatory compliance risks before you merge. Every finding gets a red/amber/green severity, a plain-English explanation, and the exact regulatory clause it breaks. No network calls, no telemetry, nothing leaves your laptop, ever.
 

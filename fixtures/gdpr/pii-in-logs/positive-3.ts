@@ -1,4 +1,4 @@
 export function notifySupport() {
-  const supportEmail = "aswinms@gmail.com";
+  const supportEmail = "support@example.com";
   console.log("contact", supportEmail);
 }

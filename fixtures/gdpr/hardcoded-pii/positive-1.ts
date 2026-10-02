@@ -1,4 +1,4 @@
 export function sendWelcomeEmail() {
-  const supportEmail = "aswinms@gmail.com";
+  const supportEmail = "support@example.com";
   return supportEmail;
 }

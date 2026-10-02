@@ -4,6 +4,6 @@ export function legacyHandler() {
 }
 
 export function newHandler() {
-  const newSupportEmail = "aswinms@gmail.com"; // newly added, part of the diff
+  const newSupportEmail = "support@example.com"; // newly added, part of the diff
   return newSupportEmail;
 }
